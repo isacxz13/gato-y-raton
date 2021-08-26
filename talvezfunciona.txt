@@ -1,0 +1,30 @@
+	int revisar() {
+		int contador = 0;
+		int contador2 = 0;
+		int band = 0;
+		for (int i = 0;i < nfilas;i++) {
+			for (int j = 0;j < ncolumanas;j++) {
+				if (((tablero1[i][j] == "X") && (i == j) && (getJugador1() >= 3) && (contador2 >= 3) ||
+					((tablero1[i][j] == "X") && (j / 2 == 1) && (getJugador1() >= 3)) && (contador2 >= 3)) ||
+					((tablero1[i][j] == "X") && ((i >= 0) && (j == 1)) && (getJugador1() >= 3) && (contador2 >= 3)) ||
+					((tablero1[i][j] == "X") && (i / 2 == 1) && (getJugador1() >= 3) && (contador2 >= 3)) ||
+					((tablero1[i][j] == "X") && (i % 2 == 1) && (getJugador1() >= 3) && (contador2 >= 3)) ||
+					((tablero1[i][j] == "X") && ((j >= 0) && (i == 0)) && (getJugador1() >= 3) && (contador2 >= 3)) ||
+					((tablero1[i][j] == "X") && ((i >= 0) && (j == 0))) && (getJugador1() >= 3) && (contador2 >= 3)) {
+					contador++;
+					if (contador >= 3) {
+						band = 1;
+						break;
+					}
+				}
+				else {
+					contador++;
+					if (contador == 8) {
+						band = 0;
+						break;
+					}	
+				}
+			}
+		}
+		return band;
+	}
